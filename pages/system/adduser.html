@@ -1,0 +1,409 @@
+<div class="breadcomb-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="breadcomb-list">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <div class="breadcomb-wp">
+                                <div class="breadcomb-icon">
+                                    <i class="notika-icon notika-form"></i>
+                                </div>
+                                <div class="breadcomb-ctn">
+                                    <h2>Add User Form</h2>
+                                    <p>Welcome to <span class="bread-ntd">Add User Account Form</span></p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Breadcomb area End-->
+<!-- Form Element area Start-->
+<div class="form-element-area">
+    <div class="container">
+        <!-- Row Element Area Start-->
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="form-element-list">
+                    <!--                    <div class="basic-tb-hd">-->
+                    <!--                        <h2>Input Text</h2>-->
+                    <!--                        <p>Text Inputs with different sizes by height and column.</p>-->
+                    <!--                    </div>-->
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                            <input id="uid" name="uid" type="hidden">
+                            <div class="form-group ic-cmp-int">
+                                <div class="form-ic-cmp">
+                                    <i class="notika-icon notika-support"></i>
+                                </div>
+                                <div class="nk-int-st">
+                                    <input class="form-control" id="username" name="username" placeholder="Username"
+                                           type="text">
+                                    <span class="text-danger" id="usernameerror"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                            <div class="form-group ic-cmp-int">
+                                <div class="form-ic-cmp">
+                                    <i class="notika-icon notika-support"></i>
+                                </div>
+                                <div class="nk-int-st">
+                                    <input class="form-control" id="name" name="name" placeholder="Full Name"
+                                           type="text">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                            <div class="form-group ic-cmp-int">
+                                <div class="form-ic-cmp">
+                                    <i class="notika-icon notika-mail"></i>
+                                </div>
+                                <div class="nk-int-st">
+                                    <input class="form-control" id="email" name="email" placeholder="Email Address"
+                                           type="text">
+                                    <span class="text-danger" id="emailerror"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                            <div class="form-group ic-cmp-int">
+                                <div class="form-ic-cmp">
+                                    <i class="notika-icon notika-eye"></i>
+                                </div>
+                                <div class="nk-int-st">
+                                    <input class="form-control" id="password" name="password" placeholder="Password"
+                                           type="password">
+                                </div>
+                            </div>
+                        </div>
+                        <!--                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">-->
+                        <!--                            <div class="form-group ic-cmp-int">-->
+                        <!--                                <div class="form-ic-cmp">-->
+                        <!--                                    <i class="notika-icon notika-eye"></i>-->
+                        <!--                                </div>-->
+                        <!--                                <div class="nk-int-st">-->
+                        <!--                                    <input class="form-control" id="cpassword" name="cpassword"-->
+                        <!--                                           placeholder="Confirm Password"-->
+                        <!--                                           type="password">-->
+                        <!--                                </div>-->
+                        <!--                            </div>-->
+                        <!--                        </div>-->
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+                            <div class="form-group">
+                                <button class="btn btn-primary btn-sm" id="saveuser" type="button"><i
+                                        class="glyphicon glyphicon-save"></i> Save
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="form-element-list">
+                    <div class="row table-responsive">
+                        <h4>List of registered users</h4>
+                        <table class="table table-bordered table-sm">
+                            <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Username</th>
+                                <th>Password</th>
+                                <th>Option</th>
+                            </tr>
+                            </thead>
+                            <tbody id="users_data">
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+        <!--Row Element Area End-->
+    </div>
+</div>
+<!-- Form Element Area End-->
+<script type="text/javascript">
+
+    let username = getId("username"),
+        email = getId("email");
+    username.addEventListener("blur", function () {
+        let usernamedata = getValue("username");
+        $.ajax({
+            url: "api/post/user/checkusername.php",
+            type: "POST",
+            dataType: "json",
+            data: {username: usernamedata},
+            success: function (data) {
+                if (data.result === "exist") {
+                    $("#usernameerror").html(data.message);
+                } else {
+                    $("#usernameerror").html("");
+                }
+            }
+        })
+    });
+    email.addEventListener("blur", function () {
+        let emaildata = getValue("email");
+        $.ajax({
+            url: "api/post/user/checkemail.php",
+            type: "POST",
+            dataType: "json",
+            data: {email: emaildata},
+            success: function (data) {
+                if (data.result === "exist") {
+                    $("#emailerror").html(data.message);
+                } else {
+                    $("#emailerror").html("");
+                }
+            }
+        })
+    });
+
+
+    function loadTable() {
+        $.ajax({
+            url: "api/post/user/fetchdata.php",
+            type: "POST",
+            dataType: "json",
+            success: function (data) {
+                if (data.result === "not_found") {
+                    let placeholder = document.querySelector("#users_data");
+                    let out = `
+                    <tr>
+                    <td colspan="5" class="text-center">No records found</td>
+                    </tr>
+                    `
+
+                    placeholder.innerHTML = out;
+                } else {
+                    let placeholder = document.querySelector("#users_data");
+                    let out = "";
+                    for (let users of data) {
+                        out += `
+                    <tr>
+                    <td>${users.name}</td>
+                    <td>${users.email}</td>
+                    <td>${users.username}</td>
+                    <td>${users.password}</td>
+                    <td><a href="javascript:" id="edituser" name="${users.uid}" class="text-primary" onclick="editUser(${users.uid})"><i class="fa fa-edit"></i> Edit</a> <a href="javascript:" id="deluser" name="${users.uid}" onclick="deleteUser(${users.uid})" class="text-danger"><i class="fa fa-trash"></i> Delete</a></td>
+                    </tr>
+                    `
+                    }
+                    placeholder.innerHTML = out;
+                }
+            }
+
+        });
+    }
+
+    function editUser(id) {
+        let editid = id;
+        $.ajax({
+            url: "api/post/user/edituser.php",
+            type: "POST",
+            dataType: "json",
+            data: {
+                uid: editid
+            },
+            success: function (data) {
+                console.log(data);
+                document.getElementById("uid").value = data['uid'];
+                document.getElementById("username").value = data['username'];
+                document.getElementById("name").value = data['name'];
+                document.getElementById("email").value = data['email'];
+                document.getElementById("password").value = data['password'];
+
+            }
+        })
+
+    }
+
+    function deleteUser(id) {
+        let editid = id;
+        $.confirm({
+            title: 'Confirm delete!',
+            content: 'You are about to delete a user account. Are you sure you want to proceed?',
+            autoClose: 'cancel|10000',
+            buttons: {
+                Yes: function () {
+                    $.ajax({
+                        url: "api/post/user/deleteuser.php",
+                        type: "POST",
+                        dataType: "JSON",
+                        data: {
+                            uid: editid
+                        },
+                        success: function (feedback) {
+                            loadTable();
+                        }
+                    });
+                },
+                cancel: function () {
+                    $.alert('Delete action canceled!', 'Canceled!');
+                }
+            }
+        });
+
+    }
+
+    $(document).ready(function () {
+        $("#data-table-basic").dataTable();
+        loadTable();
+    });
+
+    document.getElementById("saveuser").addEventListener("click", function (e) {
+        e.preventDefault();
+        let uid = getValue("uid"),
+            username = getValue("username"),
+            name = getValue("name"),
+            email = getValue("email"),
+            password = getValue("password");
+        if (username.length < 1) {
+            $.growl({
+                icon: "fa fa-info-circle",
+                message: "Please enter a username",
+            }, {
+                type: "danger",
+                allow_dismiss: true,
+                offset: {
+                    x: 20,
+                    y: 85
+                },
+                spacing: 10,
+                z_index: 1031,
+                delay: 2500,
+                timer: 1000,
+                mouse_over: false,
+                animate: {
+                    enter: "animated bounceInLeft",
+                    exit: "animated bounceOutLeft"
+                }
+            });
+        } else if (name.length < 1) {
+            $.growl({
+                icon: "fa fa-info-circle",
+                message: "Please enter full name",
+            }, {
+                type: "danger",
+                allow_dismiss: true,
+                offset: {
+                    x: 20,
+                    y: 85
+                },
+                spacing: 10,
+                z_index: 1031,
+                delay: 2500,
+                timer: 1000,
+                mouse_over: false,
+                animate: {
+                    enter: "animated bounceInLeft",
+                    exit: "animated bounceOutLeft"
+                }
+            });
+        } else if (email.length < 1) {
+            $.growl({
+                icon: "fa fa-info-circle",
+                message: "Please enter email address",
+            }, {
+                type: "danger",
+                allow_dismiss: true,
+                offset: {
+                    x: 20,
+                    y: 85
+                },
+                spacing: 10,
+                z_index: 1031,
+                delay: 2500,
+                timer: 1000,
+                mouse_over: false,
+                animate: {
+                    enter: "animated bounceInLeft",
+                    exit: "animated bounceOutLeft"
+                }
+            });
+        } else if (password.length < 1) {
+            $.growl({
+                icon: "fa fa-info-circle ",
+                message: "Please enter password",
+            }, {
+                type: "danger",
+                allow_dismiss: true,
+                offset: {
+                    x: 20,
+                    y: 85
+                },
+                spacing: 10,
+                z_index: 1031,
+                delay: 2500,
+                timer: 1000,
+                mouse_over: false,
+                animate: {
+                    enter: "animated bounceInLeft",
+                    exit: "animated bounceOutLeft"
+                }
+            });
+        } else {
+            $.ajax({
+                url: "api/post/user/adduser.php",
+                type: "POST",
+                dataType: "json",
+                data: {
+                    uid: uid,
+                    username: username,
+                    name: name,
+                    email: email,
+                    password: password
+                },
+                success: function (data) {
+                    loadTable();
+                    $.growl({
+                        icon: "fa fa-check ",
+                        message: data.message,
+                    }, {
+                        type: "success",
+                        allow_dismiss: true,
+                        offset: {
+                            x: 20,
+                            y: 85
+                        },
+                        spacing: 10,
+                        z_index: 1031,
+                        delay: 2500,
+                        timer: 1000,
+                        mouse_over: false,
+                        animate: {
+                            enter: "animated bounceInLeft",
+                            exit: "animated bounceOutLeft"
+                        }
+                    });
+                }
+            })
+        }
+    });
+
+    function getValue(id) {
+        return document.getElementById(id).value;
+    }
+
+    function getId(id) {
+        return document.getElementById(id);
+    }
+</script>

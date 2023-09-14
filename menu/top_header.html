@@ -1,0 +1,46 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+            <div class="logo-area">
+                <a href="javascript:"><img height="64px" src="../../dist/img/logo/logo.png" width="120px"></a>
+            </div>
+        </div>
+        <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+
+            <div class="header-top-menu float-end">
+                <ul class="nav navbar-nav notika-top-nav">
+                    <li style="font-size: 12px">
+                        <a class="btn triger-rotateIn" data-toggle="dropdown" href="javascript:"
+                           style="font-size: 12px"><i
+                                class="glyphicon glyphicon-user"></i> <span
+                                id="loginUsers"></span></a>
+                        <ul class="dropdown-menu triger-rotateIn-dp" style="font-size: 12px">
+                            <li><a href="#" style="font-size: 12px">Profile</a></li>
+                            <li><a href="#" style="font-size: 12px">Change Password</a></li>
+                            <li class="divider"></li>
+                            <li><a href="javascript:" id="logoutNow" onclick="logoutUserNow()"
+                                   style="font-size: 12px"><i
+                                    class="glyphicon glyphicon-log-out"></i>
+                                Logout</a></li>
+                        </ul>
+                    </li>
+
+
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        let loginSessions = localStorage.getItem("validUsername");
+        if (!loginSessions) {
+
+        } else {
+            let loginSessions = localStorage.getItem("validUsername");
+            let data = JSON.parse(loginSessions);
+            //console.log(users.name);
+            $("#loginUsers").html(data.name);
+        }
+    });
+</script>

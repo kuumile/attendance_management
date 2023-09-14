@@ -1,0 +1,742 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="ie=edge" http-equiv="x-ua-compatible">
+    <title>Attendance Management | DNTC</title>
+    <meta content="" name="description">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <!-- favicon
+		============================================ -->
+    <link href="../../dist/img/logo/logo.png" rel="shortcut icon" type="image/x-icon">
+    <!-- Google Fonts
+		============================================ -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,900" rel="stylesheet">
+    <!-- Bootstrap CSS
+		============================================ -->
+    <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- font awesome CSS
+		============================================ -->
+    <link href="../../dist/css/font-awesome.min.css" rel="stylesheet">
+    <!-- owl.carousel CSS
+		============================================ -->
+    <link href="../../dist/css/owl.carousel.css" rel="stylesheet">
+    <link href="../../dist/css/owl.theme.css" rel="stylesheet">
+    <link href="../../dist/css/owl.transitions.css" rel="stylesheet">
+    <!-- meanmenu CSS
+		============================================ -->
+    <link href="../../dist/css/meanmenu/meanmenu.min.css" rel="stylesheet">
+    <!-- animate CSS
+		============================================ -->
+    <link href="../../dist/css/animate.css" rel="stylesheet">
+    <!-- summernote CSS
+		============================================ -->
+    <link href="../../dist/css/summernote/summernote.css" rel="stylesheet">
+    <!-- Range Slider CSS
+		============================================ -->
+    <link href="../../dist/css/themesaller-forms.css" rel="stylesheet">
+    <!-- normalize CSS
+		============================================ -->
+    <link href="../../dist/css/normalize.css" rel="stylesheet">
+    <!-- mCustomScrollbar CSS
+		============================================ -->
+    <link href="../../dist/css/scrollbar/jquery.mCustomScrollbar.min.css" rel="stylesheet">
+    <!-- Notika icon CSS
+		============================================ -->
+    <link href="../../dist/css/notika-custom-icon.css" rel="stylesheet">
+    <!-- bootstrap select CSS
+		============================================ -->
+    <link href="../../dist/css/bootstrap-select/bootstrap-select.css" rel="stylesheet">
+    <!-- datapicker CSS
+		============================================ -->
+    <link href="../../dist/css/datapicker/datepicker3.css" rel="stylesheet">
+    <!-- Color Picker CSS
+		============================================ -->
+    <link href="../../dist/css/color-picker/farbtastic.css" rel="stylesheet">
+    <!-- main CSS
+		============================================ -->
+    <link href="../../dist/css/chosen/chosen.css" rel="stylesheet">
+    <!-- notification CSS
+		============================================ -->
+    <link href="../../dist/css/notification/notification.css" rel="stylesheet">
+    <!-- confirm js -->
+    <link href="../../dist/vendors/confirm/css/jquery-confirm.css" rel="stylesheet">
+    <!-- dropzone CSS
+		============================================ -->
+    <link href="../../dist/css/dropzone/dropzone.css" rel="stylesheet">
+    <!-- wave CSS
+		============================================ -->
+    <link href="../../dist/css/wave/waves.min.css" rel="stylesheet">
+    <!-- main CSS
+		============================================ -->
+    <link href="../../dist/css/main.css" rel="stylesheet">
+    <link href="../../dist/css/jquery.dataTables.min.css" rel="stylesheet">
+    <!-- style CSS
+		============================================ -->
+    <link href="../../dist/style.css" rel="stylesheet">
+    <!-- responsive CSS
+		============================================ -->
+    <link href="../../dist/css/responsive.css" rel="stylesheet">
+    <!-- modernizr JS
+		============================================ -->
+    <script src="../../dist/js/vendor/modernizr-2.8.3.min.js"></script>
+    <style>
+        #imgs {
+            width: 90px;
+            height: 90px;
+            padding: 10px;
+            /*border-radius: 3em;*/
+            /*-moz-border-radius: 3em;*/
+            /*-webkit-border-radius: 3em;*/
+            text-align: center;
+        }
+
+        #td {
+            padding-left: 5px;
+            padding-bottom: 1px;
+            padding-right: 5px;
+            font-size: 12px;
+        }
+
+        #table {
+            background-image: radial-gradient(circle, #6bd178, #84d678, #9bda79, #b0de7b, #c3e27f, #d9d56b, #edc65e, #ffb55c, #ff8767, #ff598f, #ec47c7, #815ffb);
+            border-radius: 2em;
+            -webkit-border-radius: 2em;
+            -moz-border-radius: 2em;
+        }
+    </style>
+
+</head>
+
+<body>
+<!--[if lt IE 8]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience.</p>
+<![endif]-->
+<!-- Start Header Top Area -->
+<div class="header-top-area">
+    <top-header></top-header>
+</div>
+<!-- End Header Top Area -->
+<!-- Mobile Menu start -->
+<div class="mobile-menu-area">
+    <mobile-navbar></mobile-navbar>
+</div>
+<!-- Mobile Menu end -->
+<!-- Main Menu area start-->
+<!--<div class="main-menu-area mg-tb-40" id="main_menu">-->
+<div class="main-menu-area mg-tb-40">
+    <main-navbar></main-navbar>
+</div>
+<!-- Main Menu area End-->
+<!-- Start Status area -->
+<div class="notika-status-area" id="mainApp">
+    <div class="breadcomb-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="breadcomb-list">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <div class="breadcomb-wp">
+                                    <div class="breadcomb-icon">
+                                        <i class="notika-icon notika-form"></i>
+                                    </div>
+                                    <div class="breadcomb-ctn">
+                                        <h2>Verify Card Form</h2>
+                                        <p><span id="loginUserName"></span>, Welcome to <span class="bread-ntd">Verify Card Form</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Breadcomb area End-->
+    <!-- Form Element area Start-->
+    <div class="form-element-area">
+        <div class="container">
+            <!-- Row Element Area Start-->
+            <!--            <verify-card></verify-card>-->
+
+            <div class="row">
+                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
+                    <div class="form-element-list">
+                        <div class="basic-tb-hd">
+                            <h2>Barcode Scanner</h2>
+                            <p>Place the barcode on the card in front of the camera or scanner.</p>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 text-center">
+                                <div class="form-group">
+                                    <label for="titles">Program</label>
+                                    <select class="form-control select" id="programme" name="programme">
+                                        <option value=""></option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 text-center">
+                                <div class="form-group">
+                                    <label for="subject">Subject</label>
+                                    <select class="form-control" id="subject" name="subject">
+                                        <option value=""></option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 text-center">
+                                <div class="form-group">
+                                    <label for="titles">Title</label>
+                                    <select class="form-control" id="titles" name="titles">
+                                        <option value="Class Attendance">Class Attendance</option>
+                                        <option value="Examination Attendance">Examination Attendance</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 text-center">
+                                <div class="form-group">
+                                    <label for="titles">ID Number</label>
+                                    <div class="input-group">
+                                        <input class="form-control input-group-prepend" id="idnumber" name="idnumber"
+                                               placeholder="Verify by ID Number"
+                                               type="text">
+                                        <div class="input-group-btn">
+                                            <button class="btn btn-primary" id="btnverify" name="btnverify"
+                                                    onclick="btnVerify()"
+                                                    type="button">Verify
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <input id="user_id" name="user_id" type="hidden">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+                                <!--Barcode/QR coder reader-->
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="reader" style=""></div>
+                                <!--Barcode/QR coder reader-->
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+                    <div class="form-element-list">
+                        <div class="basic-tb-hd">
+                            <h2>Verification Status</h2>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+                                <!--Barcode/QR coder reader-->
+                                <div id="displayResult"></div>
+                                <!--Barcode/QR coder reader-->
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!--Row Element Area End-->
+        </div>
+    </div>
+    <!-- Form Element Area End-->
+    <div class="datepicker-area">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="datepicker-int mg-t-30">
+                        <div class="row table-responsive">
+                            <h4>List of verified students</h4>
+                            <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                                <div class="form-group input-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                    <div class="input-group-addon">
+                                        <div>Search by ID Nnumber <i class="fa fa-search"></i>
+                                        </div>
+                                    </div>
+                                    <input class="form-control" id="searchx" name="searchx"
+                                           placeholder="Search By ID Number..."
+                                           type="text">
+                                </div>
+                            </div>
+
+                            <!--Barcode/QR coder reader results-->
+                            <table class="table table-sm">
+                                <thead>
+                                <tr>
+                                    <th>S/N</th>
+                                    <th>ID Number</th>
+                                    <th>Name</th>
+                                    <th>Programme</th>
+                                    <th>Subject Code</th>
+                                    <th>Subject</th>
+                                    <th>Class</th>
+                                    <th>Status</th>
+                                </tr>
+                                </thead>
+                                <tbody id="verifiedStudents">
+
+                                </tbody>
+                            </table>
+                            <!--Barcode/QR coder reader results-->
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+
+
+    </script>
+</div>
+<!-- End Status area-->
+
+<!-- Start Footer area-->
+
+<!-- End Footer area-->
+<!-- jquery
+    ============================================ -->
+<!--<script src="../../dist/js/jquery-3.6.0.min.js"></script>-->
+<script src="../../dist/js/vendor/jquery-1.12.4.min.js"></script>
+<!-- bootstrap JS
+    ============================================ -->
+<script src="../../dist/js/bootstrap.min.js"></script>
+<script src="../../dist/js/jquery.dataTables.min.js"></script>
+
+<!-- Components JS -->
+<script src="../../components/navBar.js"></script>
+<script src="../../components/menu.js"></script>
+<script src="../../components/cardComponent.js"></script>
+<script src="../../components/loginSession.js"></script>
+<script src="../../components/logout.js"></script>
+<!-- Js Barcode Library -->
+
+<script src="../../dist/js/JsBarcode.all.min.js"></script>
+<script src="../../dist/js/html5-qrcode.min.js"></script>
+<!--<script src="../../dist/lit/qrcode-scanner.js"></script>-->
+<!-- After, initialize the Scanbot SDK in your own script -->
+<!--<script src="../../dist/js/lib/toastify.js"></script>-->
+<!--<script src="../../dist/js/config.js"></script>-->
+<!--<script src="../../dist/js/utils.js"></script>-->
+<!--<script src="../../dist/js/view-utils.js"></script>-->
+<script>
+
+    $("#titles").on("change", function () {
+        showTodaysVerification();
+    });
+
+    $(document).ready(function () {
+        $('#searchx').on('keyup', function () {
+            let searchx = document.getElementById("searchx").value;
+            let title = document.getElementById("titles").value;
+            $.ajax({
+                url: "../../api/post/card/search.php",
+                type: "POST",
+                dataType: "JSON",
+                data: {
+                    searchx: searchx,
+                    title: title
+                },
+                success: function (feedback) {
+                    if (feedback.search === 'empty') {
+                        showTodaysVerification();
+                    } else if (feedback.result === "error") {
+                        let table = "";
+                        table = `<tr>
+<td colspan="8" class="text-center text-danger">${feedback.message}</td>
+</tr>
+`;
+                        $("#verifiedStudents").html(table);
+                    } else if (feedback.length === 1) {
+                        let i = 1;
+                        let table = `
+                    <tr>
+                    <td>${i}</td>
+                    <td>${feedback[0].idnumber}</td>
+                    <td>${feedback[0].name}</td>
+                    <td>${feedback[0].program}</td>
+                    <td>${feedback[0].code}</td>
+                    <td>${feedback[0].subject}</td>
+                    <td>${feedback[0].klass}</td>
+                    <td>${feedback[0].status}</td>
+                    </tr>
+                    `;
+                        $("#verifiedStudents").html(table);
+                    } else {
+                        let table = "";
+                        let i = 0;
+                        for (let std of feedback) {
+                            i++;
+                            table += `
+                        <tr>
+                        <td>${i}</td>
+                    <td>${std.idnumber}</td>
+                    <td>${std.name}</td>
+                    <td>${std.program}</td>
+                    <td>${std.code}</td>
+                    <td>${std.subject}</td>
+                    <td>${std.klass}</td>
+                    <td>${std.status}</td>
+                    </tr>
+                        `;
+                        }
+                        $("#verifiedStudents").html(table);
+                    }
+                }
+            });
+
+        });
+
+    });
+
+    function getLoginUserId() {
+        let loginSession = localStorage.getItem("validUsername");
+        if (!loginSession) {
+            // window.location = "../../index.html";
+        } else {
+            let loginSession = localStorage.getItem("validUsername");
+            let users = JSON.parse(loginSession);
+            //console.log(users);
+            $("#user_id").val(users.uid);
+        }
+
+    }
+
+    function showTodaysVerification() {
+        let title = document.getElementById("titles").value;
+
+        $.ajax({
+            url: "../../api/post/card/showtoday.php",
+            type: "POST",
+            dataType: "JSON",
+            data: {
+                title: title
+            },
+            success: function (feedback) {
+                if (feedback.result === "error") {
+                    let table = "";
+                    table = `<tr>
+<td colspan="8" class="text-center text-danger">${feedback.message}</td>
+</tr>
+`;
+                    $("#verifiedStudents").html(table);
+                } else if (feedback.length === 1) {
+                    let i = 1;
+                    let table = `
+                    <tr>
+                    <td>${i}</td>
+                    <td>${feedback[0].idnumber}</td>
+                    <td>${feedback[0].name}</td>
+                    <td>${feedback[0].program}</td>
+                    <td>${feedback[0].code}</td>
+                    <td>${feedback[0].subject}</td>
+                    <td>${feedback[0].klass}</td>
+                    <td>${feedback[0].status}</td>
+                    </tr>
+                    `;
+                    $("#verifiedStudents").html(table);
+                } else {
+                    let table = "";
+                    let i = 0;
+                    for (let std of feedback) {
+                        i++;
+                        table += `
+                        <tr>
+                        <td>${i}</td>
+                    <td>${std.idnumber}</td>
+                    <td>${std.name}</td>
+                    <td>${std.program}</td>
+                    <td>${std.code}</td>
+                    <td>${std.subject}</td>
+                    <td>${std.klass}</td>
+                    <td>${std.status}</td>
+                    </tr>
+                        `;
+                    }
+                    $("#verifiedStudents").html(table);
+                }
+            }
+        });
+    }
+
+    $(document).ready(function () {
+        getLoginUserId();
+        showTodaysVerification();
+    });
+
+    function onScanSuccess(decodedText, decodedResult) {
+        // Handle on success condition with the decoded text or result.
+        //console.log(`Scan result: ${decodedText}`, decodedResult);
+        let title = document.getElementById('titles').value;
+        let user_id = document.getElementById('user_id').value;
+        let cardid = decodedText;
+        let subject = document.getElementById("subject").value;
+        if (subject.length < 1) {
+            $.growl({
+                icon: "fa fa-check-circle ",
+                message: "Select a program and a Subject before verifying",
+            }, {
+                type: "danger",
+                allow_dismiss: true,
+                offset: {
+                    x: 20,
+                    y: 85
+                },
+                spacing: 10,
+                z_index: 1031,
+                delay: 2500,
+                timer: 1000,
+                mouse_over: false,
+                animate: {
+                    enter: "animated bounceInLeft",
+                    exit: "animated bounceOutLeft"
+                }
+            });
+        } else {
+            $.ajax({
+                url: "../../api/post/card/verifycard.php",
+                type: "POST",
+                dataType: "JSON",
+                data: {
+                    cardid: cardid,
+                    title: title,
+                    uid: user_id,
+                    subject: subject
+                },
+                success: function (vcard) {
+                    if (vcard.result === "error") {
+
+                        $("#displayResult").html('<span class="text-danger text-center"><i class="fa fa-remove"></i> <stron>' + vcard.message + '</stron></span>');
+                    } else if (vcard.idnumber) {
+                        let message = 'IC Card Verification was successfully';
+                        msgSuccess(message);
+                        showTodaysVerification();
+                        let viewCard = '<div class="mg-t-10 col-lg-12 col-md-12 col-sm-12 col-xs-12"><table width="100%" id="table"><tr><td colspan="3" style="text-align: center; font-weight: bold; padding-top: 1px; color: #ffffff;">' + vcard.company + '</td></tr><tr><td style="width: 40%; text-align: center;"><img id="imgs" src="../../' + vcard.logo + '" width="180" height="180"></td><td align="center" width="20%" style="font-weight: bold">STUDENT<br/>ID CARD</td><td align="center" style="width: 40%; text-align: center;"><div style="align-content: center; padding: 1px"><img id="imgs" src="../../' + vcard.picture + '"width="180" height="180"></div></td></tr><tr><td class="text-uppercase" id="td" colspan="3" style="text-align: center; font-size: 13px"><strong>' + vcard.name + '</strong></td></tr><tr><td class="text-uppercase" id="td" colspan="2"><strong>INDEX No.:</strong> ' + vcard.idnumber + '</td><td class="text-uppercase" id="td"><strong>CLASS:</strong>' + vcard.klass + '</td></tr><tr><td colspan="3"><strong>Status: </strong>' + vcard.status + '</td></tr></table></div></div>';
+                        $("#barcode").JsBarcode(vcard.idnumber, {displayValue: false, height: 30});
+                        $("#displayResult").html(viewCard);
+                    }
+                }
+            });
+        }
+    }
+
+    function btnVerify() {
+        let title = document.getElementById('titles').value;
+        let user_id = document.getElementById('user_id').value;
+        let cardid = document.getElementById('idnumber').value;
+        let subject = document.getElementById("subject").value;
+        if (subject.length < 1) {
+            $.growl({
+                icon: "fa fa-check-circle ",
+                message: "Select a program and a Subject before verifying",
+            }, {
+                type: "danger",
+                allow_dismiss: true,
+                offset: {
+                    x: 20,
+                    y: 85
+                },
+                spacing: 10,
+                z_index: 1031,
+                delay: 2500,
+                timer: 1000,
+                mouse_over: false,
+                animate: {
+                    enter: "animated bounceInLeft",
+                    exit: "animated bounceOutLeft"
+                }
+            });
+        } else {
+            $.ajax({
+                url: "../../api/post/card/verifycard.php",
+                type: "POST",
+                dataType: "JSON",
+                data: {
+                    cardid: cardid,
+                    title: title,
+                    uid: user_id,
+                    subject: subject
+                },
+                success: function (vcard) {
+                    if (vcard.result === "error") {
+
+                        $("#displayResult").html('<span class="text-danger text-center"><i class="fa fa-remove"></i> <stron>' + vcard.message + '</stron></span>');
+                    } else if (vcard.idnumber) {
+                        let message = 'IC Card Verification was successfully';
+                        msgSuccess(message);
+                        showTodaysVerification();
+                        let viewCard = '<div class="mg-t-10 col-lg-12 col-md-12 col-sm-12 col-xs-12"><table width="100%" id="table"><tr><td colspan="3" style="text-align: center; font-weight: bold; padding-top: 1px; color: #ffffff;">' + vcard.company + '</td></tr><tr><td style="width: 40%; text-align: center;"><img id="imgs" src="../../' + vcard.logo + '" width="180" height="180"></td><td align="center" width="20%" style="font-weight: bold">STUDENT<br/>ID CARD</td><td align="center" style="width: 40%; text-align: center;"><div style="align-content: center; padding: 1px"><img id="imgs" src="../../' + vcard.picture + '"width="180" height="180"></div></td></tr><tr><td class="text-uppercase" id="td" colspan="3" style="text-align: center; font-size: 13px"><strong>' + vcard.name + '</strong></td></tr><tr><td class="text-uppercase" id="td" colspan="2"><strong>INDEX No.:</strong> ' + vcard.idnumber + '</td><td class="text-uppercase" id="td"><strong>CLASS:</strong>' + vcard.klass + '</td></tr><tr><td colspan="3"><strong>Status: </strong>' + vcard.status + '</td></tr></table></div></div>';
+                        $("#barcode").JsBarcode(vcard.idnumber, {displayValue: false, height: 30});
+                        $("#displayResult").html(viewCard);
+                    }
+                }
+            });
+        }
+    }
+
+    function msgSuccess(msg) {
+        $.growl({
+            icon: "fa fa-check-circle ",
+            message: msg,
+        }, {
+            type: "success",
+            allow_dismiss: true,
+            offset: {
+                x: 20,
+                y: 85
+            },
+            spacing: 10,
+            z_index: 1031,
+            delay: 2500,
+            timer: 1000,
+            mouse_over: false,
+            animate: {
+                enter: "animated bounceInLeft",
+                exit: "animated bounceOutLeft"
+            }
+        });
+    }
+
+    function onScanError(errorMessage) {
+        // handle on error condition, with error message
+    }
+
+    var html5QrcodeScanner = new Html5QrcodeScanner(
+        "reader", {fps: 10, qrbox: 250});
+    html5QrcodeScanner.render(onScanSuccess, onScanError);
+
+
+</script>
+<!-- confirm js -->
+<script src="../../dist/vendors/confirm/js/jquery-confirm.js"></script>
+<!-- Data Table JS
+		============================================ -->
+<script src="../../dist/js/data-table/jquery.dataTables.min.js"></script>
+<script src="../../dist/js/data-table/data-table-act.js"></script>
+
+<!-- wow JS
+		============================================ -->
+<script src="../../dist/js/wow.min.js"></script>
+<!-- price-slider JS
+    ============================================ -->
+<script src="../../dist/js/jquery-price-slider.js"></script>
+<!-- owl.carousel JS
+    ============================================ -->
+<script src="../../dist/js/owl.carousel.min.js"></script>
+<!-- scrollUp JS
+    ============================================ -->
+<script src="../../dist/js/jquery.scrollUp.min.js"></script>
+<!-- meanmenu JS
+    ============================================ -->
+<script src="../../dist/js/meanmenu/jquery.meanmenu.js"></script>
+<!-- counterup JS
+    ============================================ -->
+<script src="../../dist/js/counterup/jquery.counterup.min.js"></script>
+<script src="../../dist/js/counterup/waypoints.min.js"></script>
+<script src="../../dist/js/counterup/counterup-active.js"></script>
+<!-- mCustomScrollbar JS
+    ============================================ -->
+<script src="../../dist/js/scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+<!-- sparkline JS
+    ============================================ -->
+<script src="../../dist/js/sparkline/jquery.sparkline.min.js"></script>
+<script src="../../dist/js/sparkline/sparkline-active.js"></script>
+<!-- flot JS
+    ============================================ -->
+<script src="../../dist/js/flot/jquery.flot.js"></script>
+<script src="../../dist/js/flot/jquery.flot.resize.js"></script>
+<script src="../../dist/js/flot/flot-active.js"></script>
+<!-- knob JS
+    ============================================ -->
+<script src="../../dist/js/knob/jquery.knob.js"></script>
+<script src="../../dist/js/knob/jquery.appear.js"></script>
+<script src="../../dist/js/knob/knob-active.js"></script>
+<!-- Input Mask JS
+    ============================================ -->
+<script src="../../dist/js/jasny-bootstrap.min.js"></script>
+<!-- icheck JS
+    ============================================ -->
+<script src="../../dist/js/icheck/icheck.min.js"></script>
+<script src="../../dist/js/icheck/icheck-active.js"></script>
+<!-- rangle-slider JS
+    ============================================ -->
+<script src="../../dist/js/rangle-slider/jquery-ui-1.10.4.custom.min.js"></script>
+<script src="../../dist/js/rangle-slider/jquery-ui-touch-punch.min.js"></script>
+<script src="../../dist/js/rangle-slider/rangle-active.js"></script>
+<!-- datapicker JS
+    ============================================ -->
+<script src="../../dist/js/datapicker/bootstrap-datepicker.js"></script>
+<script src="../../dist/js/datapicker/datepicker-active.js"></script>
+<!-- bootstrap select JS
+    ============================================ -->
+<script src="../../dist/js/bootstrap-select/bootstrap-select.js"></script>
+<!--  color-picker JS
+    ============================================ -->
+<script src="../../dist/js/color-picker/farbtastic.min.js"></script>
+<script src="../../dist/js/color-picker/color-picker.js"></script>
+<!--  notification JS
+    ============================================ -->
+<script src="../../dist/js/notification/bootstrap-growl.min.js"></script>
+<script src="../../dist/js/notification/notification-active.js"></script>
+<!--  summernote JS
+    ============================================ -->
+<script src="../../dist/js/summernote/summernote-updated.min.js"></script>
+<script src="../../dist/js/summernote/summernote-active.js"></script>
+<!-- dropzone JS
+    ============================================ -->
+<script src="../../dist/js/dropzone/dropzone.js"></script>
+<!--  wave JS
+    ============================================ -->
+<script src="../../dist/js/wave/waves.min.js"></script>
+<script src="../../dist/js/wave/wave-active.js"></script>
+<!--  chosen JS
+    ============================================ -->
+<script src="../../dist/js/chosen/chosen.jquery.js"></script>
+<!--  Chat JS
+    ============================================ -->
+<script src="../../dist/js/chat/jquery.chat.js"></script>
+<!--  todo JS
+    ============================================ -->
+<script src="../../dist/js/todo/jquery.todo.js"></script>
+<!-- plugins JS
+    ============================================ -->
+<script src="../../dist/js/plugins.js"></script>
+<!-- main JS
+    ============================================ -->
+<script src="../../dist/js/main.js"></script>
+<!-- tawk chat JS
+    ============================================ -->
+<!--<script src="../../dist/js/tawk-chat.js"></script>-->
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+    var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+    (function () {
+        var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+        s1.async = true;
+        s1.src = 'https://embed.tawk.to/64319c7031ebfa0fe7f7368c/1gtgsm6eq';
+        s1.charset = 'UTF-8';
+        s1.setAttribute('crossorigin', '*');
+        s0.parentNode.insertBefore(s1, s0);
+    })();
+
+
+    $(document).ready(function () {
+        $('#example').DataTable();
+    });
+</script>
+<!--End of Tawk.to Script-->
+</body>
+
+</html>
